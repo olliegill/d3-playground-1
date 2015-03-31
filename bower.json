@@ -1,0 +1,15 @@
+{
+  "name": "d3playground1",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "underscore": "~1.6.0",
+    "bourbon": "~4.0.2",
+    "neat": "~1.6.0",
+    "normalize-css": "~3.0.1",
+    "d3": "~3.5.5",
+    "firebase": "~2.2.3",
+    "trianglify": "~0.1.5"
+  }
+}
