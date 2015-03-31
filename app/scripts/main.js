@@ -41,7 +41,7 @@ var xScale = d3.scale.ordinal()
                .rangeBands([0, width], 0.2);
 
                var myBarChart = d3.select('#graphic').append('svg')
-                 .style('background', '#767676')
+                 .style('background', '#C5C8C6')
                  .attr('width', width + margin.left + margin.right)
                  .attr('height', height + margin.top + margin.bottom)
                  .append('g')
@@ -495,6 +495,7 @@ console.log(tsvdata);
 // .style("width",function(d) { return x(d) + "px";})
 // .text(function(d){return d;});
 
+/////////////////////////////////////// BAR CHART /////////////////////////////////////////
 
 var barData = [5, 10, 44, 8, 10, 11, 12, 15, 31, 11, 24, 13, 14, 18, 22, 23, 20, 25, 23, 16];
 
@@ -535,3 +536,48 @@ barSvg.selectAll("text")
       .attr("fill", "white")
       .attr("font-size", "11px")
       .attr("text-anchor", "middle");
+
+////////////////////////////////////////// PLOT GRAPH /////////////////////////////////////
+
+var plotData = [
+  [ 14,    20 ],
+  [ 455,  90 ],
+  [ 250,  50 ],
+  [ 100,  33 ],
+  [ 330,  95 ],
+  [ 410,  15 ],
+  [ 460,  44 ],
+  [ 25,   67 ],
+  [ 85,   21 ],
+  [ 220,  88 ]
+];
+
+var plotSvg = d3.select(".scatter-plot")
+                .append("svg")
+                .attr("width", barWidth)
+                .attr("height", barHeight);
+
+plotSvg.selectAll("circle")
+       .data(plotData)
+       .enter()
+       .append("circle")
+       .attr("cx", function(d) {
+         return d[0]; })
+       .attr("cy", function(d) {
+         return d[1]; })
+       .attr("r", function(d) {
+         return Math.sqrt(barHeight - d[1]); });
+
+plotSvg.selectAll("text")
+       .data(plotData)
+       .enter()
+       .append("text")
+       .text(function(d) {
+         return d[0] +  "," + d[1]; })
+       .attr("x", function(d) {
+         return d[0]; })
+       .attr("y", function(d) {
+         return d[1]; })
+       .attr("font-family", "sans-serif")
+       .attr("font-size", "11px")
+       .attr("fill", "red");
