@@ -1,3 +1,5 @@
+/////////////////////////////// BACKGROUND TRIANGLIFY //////////////////////////////////////////
+
 var rn = Math.floor((Math.random() * 150) + 60);
 var rs = Math.floor((Math.random() * 11) + 4);
   var t = new Trianglify({
@@ -8,7 +10,7 @@ var rs = Math.floor((Math.random() * 11) + 4);
 var pattern = t.generate(window.innerWidth, window.innerWidth+200);
 document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
 
-
+///////////////////////////////////////////////////////////////////
 
 var bardata = [];
 
@@ -581,3 +583,13 @@ plotSvg.selectAll("text")
        .attr("font-family", "sans-serif")
        .attr("font-size", "11px")
        .attr("fill", "red");
+
+var xAxis = d3.svg.axis()
+              .scale(xScale)
+              .orient("bottom")
+              .ticks(5);
+
+plotSvg.append("g")
+       .attr("class", "axisTwo")
+       .attr("transform", "translate(0," + (barHeight - barPadding - 5) + ")")
+       .call(xAxis);

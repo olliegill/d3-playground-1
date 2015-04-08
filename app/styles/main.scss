@@ -68,4 +68,17 @@ body {
   outline: solid red 1px;
   display: inline-block;
   margin-left: 2em;
+  margin-bottom: 10em;
+}
+
+.axisTwo path,
+.axisTwo line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axisTwo text {
+  font-family: sans-serif;
+  font-size: 11px;
 }
